@@ -3,11 +3,11 @@ import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate/ExpenseDate";
 import Card from "../../Card/Card";
 
-interface Props {
-  date: Date;
+type Props = {
+  date: string;
   title: String;
   amount: Number;
-}
+};
 
 const ExpenseItem = (props: Props) => {
   return (
@@ -15,7 +15,7 @@ const ExpenseItem = (props: Props) => {
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         <h2>{props.title}</h2>
-        <div className="expense-item__price">{props.amount}</div>
+        <div className="expense-item__price">&#x20B9; {props.amount}</div>
       </div>
     </Card>
   );
