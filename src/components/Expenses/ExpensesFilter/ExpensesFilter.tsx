@@ -4,6 +4,7 @@ import "./ExpensesFilter.css";
 
 type Props = {
   onChange: (year: string) => void;
+  selected: string;
 };
 
 const ExpensesFilter = (props: Props) => {
@@ -17,7 +18,7 @@ const ExpensesFilter = (props: Props) => {
     <div className="expenses-filter">
       <div className="expenses-filter__control">
         <label>Filter by year</label>
-        <select onChange={selectChangeHandler}>
+        <select onChange={selectChangeHandler} defaultValue={props.selected}>
           <option value="2021">2021</option>
           <option value="2020">2020</option>
           <option value="2019">2019</option>

@@ -5,6 +5,7 @@ import { Expense } from "../../../helpers/types";
 
 type Props = {
   onSubmitExpenseData: (expense: Expense) => void;
+  onCancel: () => void;
 };
 
 const ExpenseForm = (props: Props) => {
@@ -33,13 +34,17 @@ const ExpenseForm = (props: Props) => {
     const expense = {
       title: enteredTitle,
       amount: Number(enteredAmount),
-      date: enteredDate,
+      date: new Date(enteredDate),
       id: Date.now().toString(),
     };
     props.onSubmitExpenseData(expense);
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate(today);
+  };
+
+  const cancelHandler: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+    props.onCancel();
   };
 
   return (
@@ -80,6 +85,7 @@ const ExpenseForm = (props: Props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button onClick={cancelHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
