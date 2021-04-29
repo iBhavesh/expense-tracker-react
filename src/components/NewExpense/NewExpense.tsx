@@ -8,7 +8,7 @@ interface Props {
 }
 
 const NewExpense = (props: Props) => {
-  const [isAddExpense, setIsAddExpense] = useState(true);
+  const [isAddExpense, setIsAddExpense] = useState(false);
   const cancelExpense = () => {
     setIsAddExpense(false);
   };
